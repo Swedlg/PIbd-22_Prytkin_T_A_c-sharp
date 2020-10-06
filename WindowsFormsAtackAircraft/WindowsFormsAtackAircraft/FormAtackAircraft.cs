@@ -9,7 +9,7 @@ namespace WindowsFormsAtackAircraft
 
         Random rnd = new Random();
 
-        private AtackAircraft atackAircraft;
+        private ITransport plane;
 
         public FormAtackAircraft()
         {
@@ -18,13 +18,13 @@ namespace WindowsFormsAtackAircraft
 
 
         /// <summary>
-        /// Метод отрисовки штурмовика
+        /// Метод отрисовки самолета
         /// </summary>
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxAtackAircraft.Width, pictureBoxAtackAircraft.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            atackAircraft.DrawTransport(gr);
+            plane.DrawTransport(gr);
             pictureBoxAtackAircraft.Image = bmp;
         }
 
@@ -37,21 +37,21 @@ namespace WindowsFormsAtackAircraft
                 switch (name)
                 {
                     case "btnUp":
-                        atackAircraft.MoveTransport(Direction.Up);
+                        plane.MoveTransport(Direction.Up);
                         break;
                     case "btnDown":
-                        atackAircraft.MoveTransport(Direction.Down);
+                        plane.MoveTransport(Direction.Down);
                         break;
                     case "btnLeft":
-                        atackAircraft.MoveTransport(Direction.Left);
+                        plane.MoveTransport(Direction.Left);
                         break;
                     case "btnRight":
-                        atackAircraft.MoveTransport(Direction.Right);
+                        plane.MoveTransport(Direction.Right);
                         break;
                 }
                 Draw();
             }
-            catch { }        
+            catch { }
         }
 
         private bool RandomBoolean()
@@ -62,16 +62,17 @@ namespace WindowsFormsAtackAircraft
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
-        {       
-            atackAircraft = new AtackAircraft(rnd.Next(1000, 1500), rnd.Next(2000, 3000), Color.Blue, Color.Red, Color.Green, Color.Yellow, RandomBoolean(), RandomBoolean(), RandomBoolean(), RandomBoolean(), RandomBoolean());
-            atackAircraft.SetPosition(rnd.Next(150, 200), rnd.Next(150, 200), pictureBoxAtackAircraft.Width, pictureBoxAtackAircraft.Height);
+        {
+
+            plane = new Plane(rnd.Next(1000, 1500), rnd.Next(2000, 3000), Color.Blue, Color.Green, true, true, true);
+            plane.SetPosition(rnd.Next(150, 200), rnd.Next(150, 200), pictureBoxAtackAircraft.Width, pictureBoxAtackAircraft.Height);
             Draw();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            atackAircraft = new AtackAircraft(rnd.Next(1000, 1500), rnd.Next(2000, 3000), Color.Blue, Color.Red, Color.Green, Color.Yellow, true, true, true, true, true);
-            atackAircraft.SetPosition(rnd.Next(150, 200), rnd.Next(150, 200), pictureBoxAtackAircraft.Width, pictureBoxAtackAircraft.Height);
+            plane = new AttackAircraft(rnd.Next(1000, 1500), rnd.Next(2000, 3000), Color.Blue, Color.Red, true, true);
+            plane.SetPosition(rnd.Next(150, 200), rnd.Next(150, 200), pictureBoxAtackAircraft.Width, pictureBoxAtackAircraft.Height);
             Draw();
         }
     }
