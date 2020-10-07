@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAtackAircraft));
-            this.btnCreate = new System.Windows.Forms.Button();
+            //this.btnCreate = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
             this.pictureBoxAtackAircraft = new System.Windows.Forms.PictureBox();
-            this.btnCreateAtackAircraft = new System.Windows.Forms.Button();
+            //this.btnCreateAtackAircraft = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtackAircraft)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreate
             // 
+            /*
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -51,6 +52,7 @@
             this.btnCreate.Text = "Create Random Plane";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
+            */
             // 
             // btnRight
             // 
@@ -111,12 +113,13 @@
             this.pictureBoxAtackAircraft.Image = global::WindowsFormsAtackAircraft.Properties.Resources.sky_2868089_1920;
             this.pictureBoxAtackAircraft.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxAtackAircraft.Name = "pictureBoxAtackAircraft";
-            this.pictureBoxAtackAircraft.Size = new System.Drawing.Size(892, 549);
+            this.pictureBoxAtackAircraft.Size = new System.Drawing.Size(749, 631);
             this.pictureBoxAtackAircraft.TabIndex = 0;
             this.pictureBoxAtackAircraft.TabStop = false;
             // 
             // btnCreateAtackAircraft
             // 
+            /*
             this.btnCreateAtackAircraft.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCreateAtackAircraft.Location = new System.Drawing.Point(12, 567);
             this.btnCreateAtackAircraft.Name = "btnCreateAtackAircraft";
@@ -125,6 +128,7 @@
             this.btnCreateAtackAircraft.Text = "Create Atack Aircraft";
             this.btnCreateAtackAircraft.UseVisualStyleBackColor = true;
             this.btnCreateAtackAircraft.Click += new System.EventHandler(this.Button1_Click);
+            */
             // 
             // FormAtackAircraft
             // 
@@ -132,8 +136,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1090, 701);
-            this.Controls.Add(this.btnCreateAtackAircraft);
-            this.Controls.Add(this.btnCreate);
+            //this.Controls.Add(this.btnCreateAtackAircraft);
+            //this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnLeft);
@@ -154,8 +158,8 @@
         private System.Windows.Forms.Button btnLeft;
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Button btnRight;
-        private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.Button btnCreateAtackAircraft;
+        //private System.Windows.Forms.Button btnCreate;
+        //private System.Windows.Forms.Button btnCreateAtackAircraft;
     }
 }
 

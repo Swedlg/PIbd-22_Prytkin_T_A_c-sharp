@@ -3,7 +3,7 @@
 
 namespace WindowsFormsAtackAircraft
 {
-    interface ITransport
+    public interface ITransport
 
     {
         /// <summary>

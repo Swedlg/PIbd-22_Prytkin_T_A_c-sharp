@@ -29,6 +29,17 @@ namespace WindowsFormsAtackAircraft
         }
 
 
+        /// <summary>
+        /// Передача самолета на форму
+        /// </summary>
+        /// <param name="plane"></param>
+        public void SetPlane(ITransport plane)
+        {
+            this.plane = plane;
+            Draw();
+        }
+
+
         private void buttonMove_Click(object sender, EventArgs e)
         {
             try
@@ -61,6 +72,8 @@ namespace WindowsFormsAtackAircraft
             else { return true; }
         }
 
+        /*
+
         private void BtnCreate_Click(object sender, EventArgs e)
         {
 
@@ -75,5 +88,6 @@ namespace WindowsFormsAtackAircraft
             plane.SetPosition(rnd.Next(150, 200), rnd.Next(150, 200), pictureBoxAtackAircraft.Width, pictureBoxAtackAircraft.Height);
             Draw();
         }
+        */
     }
 }
