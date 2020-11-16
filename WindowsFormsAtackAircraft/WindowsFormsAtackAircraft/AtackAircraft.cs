@@ -20,55 +20,45 @@ namespace WindowsFormsAtackAircraft
         /// </summary>
         private float _startPosY;
 
-
         /// <summary>
         /// Ширина окна отрисовки
         /// </summary>
         private int _pictureWidth;
-
 
         /// <summary>
         /// Высота окна отрисовки
         /// </summary>
         private int _pictureHeight;
 
-
         /// <summary>
         /// Ширина отрисовки штурмовика
         /// </summary>
         private readonly int atackAircraftWidth = 200;
-
 
         /// <summary>
         /// Высота отрисовки штурмовика
         /// </summary>
         private readonly int atackAircraftHeight = 100;
 
-
         /// <summary>
         /// Максимальная скорость
         /// </summary>
         public int MaxSpeed { private set; get; }
-
 
         /// <summary>
         /// Вес штурмовика
         /// </summary>
         public float Weight { private set; get; }
 
-
         /// <summary>
         /// Основной цвет штурмовика
         /// </summary>
         public Color MainColor { private set; get; }
 
-
         /// <summary>
         /// Дополнительные цвета штурмовика
         /// </summary>
         public Color DopColor { private set; get; }
-        public Color DopColor2 { private set; get; }
-        public Color DopColor3 { private set; get; }
 
 
         /// <summary>
@@ -76,36 +66,30 @@ namespace WindowsFormsAtackAircraft
         /// </summary>
         public bool Propeller { private set; get; }
 
-
         /// <summary>
         /// Признак наличия шасси
         /// </summary>
         public bool Сhassis { private set; get; }
-
 
         /// <summary>
         /// Признак наличия антенна
         /// </summary>
         public bool Antenna { private set; get; }
 
-
         /// <summary>
         /// Признак наличия камуфляжа
         /// </summary>
         public bool Сamouflage { private set; get; }
-
 
         /// <summary>
         /// Признак наличия ракет
         /// </summary>
         public bool Rockets { private set; get; }
 
-
         /// <summary>
         /// Признак наличия бомб
         /// </summary>
         public bool Bombs { private set; get; }
-
 
         /// <summary>
         /// Конструктор
@@ -122,14 +106,12 @@ namespace WindowsFormsAtackAircraft
         /// <param name="camouflage">Признак наличия гоночной полосы</param>
         /// <param name="rockets">Признак наличия заднего спойлера</param>
         /// <param name="bombs">Признак наличия гоночной полосы</param>
-        public AtackAircraft(int maxSpeed, float weight, Color mainColor, Color dopColor, Color dopColor2, Color dopColor3, bool propeller, bool chassis, bool antenna, bool rockets, bool bombs)
+        public AtackAircraft(int maxSpeed, float weight, Color mainColor, Color dopColor, bool propeller, bool chassis, bool antenna, bool rockets, bool bombs)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
             DopColor = dopColor;
-            DopColor2 = dopColor2;
-            DopColor3 = dopColor3;
             Propeller = propeller;
             Сhassis = chassis;
             Antenna = antenna;
@@ -137,7 +119,6 @@ namespace WindowsFormsAtackAircraft
             Bombs = bombs;
             Сamouflage = rockets || bombs;
         }
-
 
         /// <summary>
         /// Установка позиции штурмовика
@@ -153,7 +134,6 @@ namespace WindowsFormsAtackAircraft
             _pictureWidth = width;
             _pictureHeight = height;
         }
-
 
         /// <summary>
         /// Изменение направления пермещения
@@ -193,13 +173,15 @@ namespace WindowsFormsAtackAircraft
             }
         }
 
-
         /// <summary>
         /// Отрисовка штурмовика
         /// </summary>
         /// <param name="g">Графика</param>
         public void DrawTransport(Graphics g)
         {
+            
+            Color ColorPropellerChassisAntena = Color.Green;
+            Color ColorCamuflage = Color.Yellow;
 
             Pen pen = new Pen(MainColor);
             Brush brush;
@@ -209,7 +191,7 @@ namespace WindowsFormsAtackAircraft
             }
             else
             {
-                brush = new SolidBrush(DopColor3);
+                brush = new SolidBrush(ColorCamuflage);
             }
 
 
@@ -238,14 +220,14 @@ namespace WindowsFormsAtackAircraft
          
             if (Propeller)
             {
-                pen = new Pen(DopColor2);
+                pen = new Pen(ColorPropellerChassisAntena);
                 pen.Width = 3;
                 g.DrawLine(pen, _startPosX + 85, _startPosY - 95, _startPosX + 115, _startPosY - 95);
                 
             }
             if (Сhassis)
             {
-                pen = new Pen(DopColor2);
+                pen = new Pen(ColorPropellerChassisAntena);
                 pen.Width = 3;
                 g.DrawLine(pen, _startPosX + 100, _startPosY - 75, _startPosX + 100, _startPosY - 50);
                 g.DrawEllipse(pen, _startPosX + 97, _startPosY - 65, 6, 6);
@@ -256,7 +238,7 @@ namespace WindowsFormsAtackAircraft
             }
             if (Antenna)
             {
-                pen = new Pen(DopColor2);
+                pen = new Pen(ColorPropellerChassisAntena);
                 pen.Width = 3;
                 g.DrawLine(pen, _startPosX + 100, _startPosY + 95, _startPosX + 100, _startPosY + 120);
             }

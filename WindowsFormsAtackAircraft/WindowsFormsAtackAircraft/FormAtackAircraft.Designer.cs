@@ -148,7 +148,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.PictureBox pictureBoxAtackAircraft;
         private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnLeft;
