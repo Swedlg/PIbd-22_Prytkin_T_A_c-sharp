@@ -8,7 +8,7 @@ namespace WindowsFormsAtackAircraft
         /// <summary>
         /// Дополнительный цвет
         /// </summary>
-        public Color DopColor2 { private set; get; }//Красный
+        public Color DopColor { private set; get; }//Красный
 
         /// <summary>
         /// Признак наличия ракет
@@ -20,32 +20,32 @@ namespace WindowsFormsAtackAircraft
         /// </summary>
         public bool Bombs { private set; get; }
 
-
         /// <summary>
-        /// Конструктор
+        /// Конструктор штурмовика
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес автомобиля</param>
         /// <param name="mainColor">Основной цвет кузова</param>
         /// <param name="dopColor">Дополнительный цвет</param>
         /// public SportCar(int maxSpeed, float weight, Color mainColor, Color dopColor, bool frontSpoiler, bool sideSpoiler, bool backSpoiler, bool sportLine) :
-
-
-        public AttackAircraft(int maxSpeed, float weight, Color mainColor, Color dopColor2, bool rockets, bool bombs) :
+        public AttackAircraft(int maxSpeed, float weight, Color mainColor, Color dopColor, bool rockets, bool bombs) :
         base(maxSpeed, weight, mainColor, Color.Green, true, true, true, 100, 60)
         {
-            DopColor2 = dopColor2;
+            DopColor = dopColor;
             Rockets = rockets;
             Bombs = bombs;
 
         }
 
+        /// <summary>
+        /// Перемещения транспорта
+        /// </summary>
         public override void DrawTransport(Graphics g)
         {
 
             base.DrawTransport(g);
 
-            Pen pen = new Pen(DopColor2);
+            Pen pen = new Pen(DopColor);
             Brush brush;
 
             if (Rockets)
@@ -63,7 +63,7 @@ namespace WindowsFormsAtackAircraft
             }
             if (Bombs)
             {
-                brush = new SolidBrush(DopColor2);
+                brush = new SolidBrush(DopColor);
                 g.FillEllipse(brush, _startPosX + 93, _startPosY - 25, 14, 28);
                 g.FillEllipse(brush, _startPosX + 93, _startPosY + 25, 14, 28);
             }

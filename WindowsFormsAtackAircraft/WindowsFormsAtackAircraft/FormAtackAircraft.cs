@@ -16,7 +16,6 @@ namespace WindowsFormsAtackAircraft
             InitializeComponent();
         }
 
-
         /// <summary>
         /// Метод отрисовки самолета
         /// </summary>
@@ -28,7 +27,9 @@ namespace WindowsFormsAtackAircraft
             pictureBoxAtackAircraft.Image = bmp;
         }
 
-
+        /// <summary>
+        /// В зависимости от нажатой кнопки выбираем напрвавление передвижения
+        /// </summary>
         private void buttonMove_Click(object sender, EventArgs e)
         {
             try
@@ -54,6 +55,9 @@ namespace WindowsFormsAtackAircraft
             catch { }
         }
 
+        /// <summary>
+        /// Получение рандомного булего значения (true/false)
+        /// </summary>
         private bool RandomBoolean()
         {
             int temp = rnd.Next(0, 2);
@@ -61,6 +65,9 @@ namespace WindowsFormsAtackAircraft
             else { return true; }
         }
 
+        /// <summary>
+        /// Обработчик для кнопки создать обычный самолет
+        /// </summary>
         private void BtnCreate_Click(object sender, EventArgs e)
         {
 
@@ -69,6 +76,9 @@ namespace WindowsFormsAtackAircraft
             Draw();
         }
 
+        /// <summary>
+        /// Обработчик для кнопки создать штурмовик
+        /// </summary>
         private void Button1_Click(object sender, EventArgs e)
         {
             plane = new AttackAircraft(rnd.Next(1000, 1500), rnd.Next(2000, 3000), Color.Blue, Color.Red, true, true);
