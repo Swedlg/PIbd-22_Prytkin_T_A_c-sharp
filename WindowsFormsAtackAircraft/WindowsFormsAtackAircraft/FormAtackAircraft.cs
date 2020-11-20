@@ -65,7 +65,7 @@ namespace WindowsFormsAtackAircraft
         /// <summary>
         /// Обработчик нажатия на кнопку создать самолет
         /// </summary>
-        private void BtnCreate_Click(object sender, EventArgs e)
+        private void ButtonCreatePlane_Click(object sender, EventArgs e)
         {       
             atackAircraft = new AtackAircraft(rnd.Next(1000, 1500), rnd.Next(2000, 3000), Color.Blue, Color.Red, RandomBoolean(), RandomBoolean(), RandomBoolean(), RandomBoolean(), RandomBoolean());
             atackAircraft.SetPosition(rnd.Next(150, 200), rnd.Next(150, 200), pictureBoxAtackAircraft.Width, pictureBoxAtackAircraft.Height);
@@ -75,7 +75,7 @@ namespace WindowsFormsAtackAircraft
         /// <summary>
         /// Обработчик нажатия на кнопку создать штурмовик
         /// </summary>
-        private void Button1_Click(object sender, EventArgs e)
+        private void ButtonCreateAttackAircraft_Click(object sender, EventArgs e)
         {
             atackAircraft = new AtackAircraft(rnd.Next(1000, 1500), rnd.Next(2000, 3000), Color.Blue, Color.Red, true, true, true, true, true);
             atackAircraft.SetPosition(rnd.Next(150, 200), rnd.Next(150, 200), pictureBoxAtackAircraft.Width, pictureBoxAtackAircraft.Height);

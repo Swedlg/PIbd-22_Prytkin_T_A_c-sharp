@@ -39,7 +39,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtackAircraft)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnCreate
+            // btnCreatePlane
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -50,7 +50,7 @@
             this.btnCreate.TabIndex = 5;
             this.btnCreate.Text = "Create Random Plane";
             this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
+            this.btnCreate.Click += new System.EventHandler(this.ButtonCreatePlane_Click);
             // 
             // btnRight
             // 
@@ -124,7 +124,7 @@
             this.btnCreateAtackAircraft.TabIndex = 6;
             this.btnCreateAtackAircraft.Text = "Create Atack Aircraft";
             this.btnCreateAtackAircraft.UseVisualStyleBackColor = true;
-            this.btnCreateAtackAircraft.Click += new System.EventHandler(this.Button1_Click);
+            this.btnCreateAtackAircraft.Click += new System.EventHandler(this.ButtonCreateAttackAircraft_Click);
             // 
             // FormAtackAircraft
             // 
