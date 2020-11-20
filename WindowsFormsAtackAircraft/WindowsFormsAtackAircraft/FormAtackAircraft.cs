@@ -15,8 +15,7 @@ namespace WindowsFormsAtackAircraft
         {
             InitializeComponent();
         }
-
-
+        
         /// <summary>
         /// Метод отрисовки штурмовика
         /// </summary>
@@ -28,7 +27,9 @@ namespace WindowsFormsAtackAircraft
             pictureBoxAtackAircraft.Image = bmp;
         }
 
-
+        /// <summary>
+        /// Обработчик нажатия на кнопку переджвижения
+        /// </summary>
         private void buttonMove_Click(object sender, EventArgs e)
         {
             try
@@ -61,6 +62,9 @@ namespace WindowsFormsAtackAircraft
             else { return true; }
         }
 
+        /// <summary>
+        /// Обработчик нажатия на кнопку создать самолет
+        /// </summary>
         private void BtnCreate_Click(object sender, EventArgs e)
         {       
             atackAircraft = new AtackAircraft(rnd.Next(1000, 1500), rnd.Next(2000, 3000), Color.Blue, Color.Red, RandomBoolean(), RandomBoolean(), RandomBoolean(), RandomBoolean(), RandomBoolean());
@@ -68,6 +72,9 @@ namespace WindowsFormsAtackAircraft
             Draw();
         }
 
+        /// <summary>
+        /// Обработчик нажатия на кнопку создать штурмовик
+        /// </summary>
         private void Button1_Click(object sender, EventArgs e)
         {
             atackAircraft = new AtackAircraft(rnd.Next(1000, 1500), rnd.Next(2000, 3000), Color.Blue, Color.Red, true, true, true, true, true);

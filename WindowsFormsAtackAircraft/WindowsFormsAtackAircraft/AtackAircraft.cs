@@ -60,7 +60,6 @@ namespace WindowsFormsAtackAircraft
         /// </summary>
         public Color DopColor { private set; get; }
 
-
         /// <summary>
         /// Признак пропеллера
         /// </summary>
@@ -193,7 +192,6 @@ namespace WindowsFormsAtackAircraft
             {
                 brush = new SolidBrush(ColorCamuflage);
             }
-
 
             //самолет
             Point point1 = new Point((int)_startPosX + 100, (int)_startPosY - 100);
