@@ -141,7 +141,7 @@
             this.Controls.Add(this.pictureBoxAtackAircraft);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAtackAircraft";
-            this.Text = "Лаба 1 Штурмовик";
+            this.Text = "Лаба 2 Штурмовик";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtackAircraft)).EndInit();
             this.ResumeLayout(false);
 
