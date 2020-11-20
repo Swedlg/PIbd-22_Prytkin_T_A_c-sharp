@@ -17,10 +17,7 @@ namespace WindowsFormsAtackAircraft
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormAtackAircraft());
             Application.Run(new FormParking());
-
-
         }
     }
 }

@@ -85,11 +85,11 @@ namespace WindowsFormsAtackAircraft
 			}
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void buttonCreateAttackAirctaft_Click(object sender, EventArgs e)
 		{
-			if (maskedTextBox2.Text != "")
+			if (maskedTextBoxPlaceOnParking.Text != "")
 			{
-				var plane = parking - (Convert.ToInt32(maskedTextBox2.Text) - 1);
+				var plane = parking - (Convert.ToInt32(maskedTextBoxPlaceOnParking.Text) - 1);
 				if (plane != null)
 				{
 					FormAtackAircraft form = new FormAtackAircraft();
@@ -98,11 +98,6 @@ namespace WindowsFormsAtackAircraft
 				}
 				Draw();
 			}
-		}
-
-		private void groupBox2_Enter(object sender, EventArgs e)
-		{
-
 		}
 	}
 }

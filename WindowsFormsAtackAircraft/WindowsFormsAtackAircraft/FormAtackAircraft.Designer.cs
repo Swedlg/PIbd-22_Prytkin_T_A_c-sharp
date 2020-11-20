@@ -39,21 +39,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtackAircraft)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnCreate
-            // 
-            /*
-            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCreate.Location = new System.Drawing.Point(268, 567);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(250, 122);
-            this.btnCreate.TabIndex = 5;
-            this.btnCreate.Text = "Create Random Plane";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
-            */
-            // 
             // btnRight
             // 
             this.btnRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -116,19 +101,6 @@
             this.pictureBoxAtackAircraft.Size = new System.Drawing.Size(749, 631);
             this.pictureBoxAtackAircraft.TabIndex = 0;
             this.pictureBoxAtackAircraft.TabStop = false;
-            // 
-            // btnCreateAtackAircraft
-            // 
-            /*
-            this.btnCreateAtackAircraft.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCreateAtackAircraft.Location = new System.Drawing.Point(12, 567);
-            this.btnCreateAtackAircraft.Name = "btnCreateAtackAircraft";
-            this.btnCreateAtackAircraft.Size = new System.Drawing.Size(250, 122);
-            this.btnCreateAtackAircraft.TabIndex = 6;
-            this.btnCreateAtackAircraft.Text = "Create Atack Aircraft";
-            this.btnCreateAtackAircraft.UseVisualStyleBackColor = true;
-            this.btnCreateAtackAircraft.Click += new System.EventHandler(this.Button1_Click);
-            */
             // 
             // FormAtackAircraft
             // 

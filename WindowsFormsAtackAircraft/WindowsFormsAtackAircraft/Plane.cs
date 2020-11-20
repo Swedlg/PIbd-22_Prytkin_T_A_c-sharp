@@ -16,24 +16,20 @@ namespace WindowsFormsAtackAircraft
         /// </summary>
         protected readonly int planeHeight = 100;
 
-
         /// <summary>
         /// Признак пропеллера
         /// </summary>
         public bool Propeller { private set; get; }
-
 
         /// <summary>
         /// Признак наличия шасси
         /// </summary>
         public bool Сhassis { private set; get; }
 
-
         /// <summary>
         /// Признак наличия антенна
         /// </summary>
         public bool Antenna { private set; get; }
-
 
         /// <summary>
         /// Конструктор
@@ -74,7 +70,10 @@ namespace WindowsFormsAtackAircraft
 
         }
 
-
+        /// <summary>
+        /// Передвижение транпорта
+        /// </summary>
+        /// <param name="direction"></param>
         public override void MoveTransport(Direction direction)
         {
             int leftbody = 0;//выступ левой части
@@ -111,6 +110,10 @@ namespace WindowsFormsAtackAircraft
         }
 
 
+        /// <summary>
+        /// Отрисовка транспорта
+        /// </summary>
+        /// <param name="g"></param>
         public override void DrawTransport(Graphics g)
         {
 
@@ -141,8 +144,6 @@ namespace WindowsFormsAtackAircraft
 
             Point[] curvePoints = { point1, point2, point3, point4, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17, point18 };
             g.FillPolygon(brush, curvePoints);
-
-
 
             if (Propeller)
             {

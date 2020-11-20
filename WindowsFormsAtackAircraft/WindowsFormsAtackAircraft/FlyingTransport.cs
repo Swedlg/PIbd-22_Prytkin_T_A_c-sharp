@@ -5,7 +5,6 @@ namespace WindowsFormsAtackAircraft
     public abstract class FlyingTransport : ITransport
     {
 
-
         /// <summary>
         /// Левая координата отрисовки воздушного транспорта
         /// </summary>
@@ -42,6 +41,13 @@ namespace WindowsFormsAtackAircraft
         public Color MainColor { protected set; get; }
         public Color DopColor { protected set; get; }
 
+        /// <summary>
+        /// Установить позицию для летающего транспорта
+        /// </summary>
+        /// <param name="x">Координата X</param>
+        /// <param name="y">Координата Y</param>
+        /// <param name="width">Ширина</param>
+        /// <param name="height">Высота</param>
         public void SetPosition(int x, int y, int width, int height)
         {
             _startPosX = x;
