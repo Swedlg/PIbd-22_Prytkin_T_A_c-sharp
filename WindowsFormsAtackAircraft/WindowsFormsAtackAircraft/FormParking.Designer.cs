@@ -37,6 +37,10 @@ namespace WindowsFormsAtackAircraft
             this.buttonGoToSky = new System.Windows.Forms.Button();
             this.maskedTextBoxPlaceOnParking = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
+            this.textBoxNewLevelName = new System.Windows.Forms.MaskedTextBox();
+            this.buttonAddParking = new System.Windows.Forms.Button();
+            this.listBoxParkings = new System.Windows.Forms.ListBox();
+            this.buttonDeleteParking = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBoxGoToSky.SuspendLayout();
             this.SuspendLayout();
@@ -109,11 +113,51 @@ namespace WindowsFormsAtackAircraft
             this.labelPlace.TabIndex = 0;
             this.labelPlace.Text = "Место: ";
             // 
+            // textBoxNewLevelName
+            // 
+            this.textBoxNewLevelName.Location = new System.Drawing.Point(676, 287);
+            this.textBoxNewLevelName.Name = "textBoxNewLevelName";
+            this.textBoxNewLevelName.Size = new System.Drawing.Size(268, 20);
+            this.textBoxNewLevelName.TabIndex = 4;
+            // 
+            // buttonAddParking
+            // 
+            this.buttonAddParking.Location = new System.Drawing.Point(676, 322);
+            this.buttonAddParking.Name = "buttonAddParking";
+            this.buttonAddParking.Size = new System.Drawing.Size(269, 55);
+            this.buttonAddParking.TabIndex = 5;
+            this.buttonAddParking.Text = "Добавить парковку";
+            this.buttonAddParking.UseVisualStyleBackColor = true;
+            this.buttonAddParking.Click += new System.EventHandler(this.buttonAddParking_Click);
+            // 
+            // listBoxParkings
+            // 
+            this.listBoxParkings.FormattingEnabled = true;
+            this.listBoxParkings.Location = new System.Drawing.Point(678, 392);
+            this.listBoxParkings.Name = "listBoxParkings";
+            this.listBoxParkings.Size = new System.Drawing.Size(266, 95);
+            this.listBoxParkings.TabIndex = 6;
+            this.listBoxParkings.SelectedIndexChanged += new System.EventHandler(this.listBoxParkings_SelectedIndexChanged);
+            // 
+            // buttonDeleteParking
+            // 
+            this.buttonDeleteParking.Location = new System.Drawing.Point(678, 493);
+            this.buttonDeleteParking.Name = "buttonDeleteParking";
+            this.buttonDeleteParking.Size = new System.Drawing.Size(269, 55);
+            this.buttonDeleteParking.TabIndex = 7;
+            this.buttonDeleteParking.Text = "Удалить парковку";
+            this.buttonDeleteParking.UseVisualStyleBackColor = true;
+            this.buttonDeleteParking.Click += new System.EventHandler(this.buttonDeleteParking_Click);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 555);
+            this.Controls.Add(this.buttonDeleteParking);
+            this.Controls.Add(this.listBoxParkings);
+            this.Controls.Add(this.buttonAddParking);
+            this.Controls.Add(this.textBoxNewLevelName);
             this.Controls.Add(this.groupBoxGoToSky);
             this.Controls.Add(this.button_parkAttackAircraft);
             this.Controls.Add(this.button_parkThePlane);
@@ -137,14 +181,18 @@ namespace WindowsFormsAtackAircraft
 		private System.Windows.Forms.PictureBox pictureBoxParking;
 		private System.Windows.Forms.Button button_parkThePlane;
 		private System.Windows.Forms.Button button_parkAttackAircraft;
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button button_pickUp;
-		private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-		private System.Windows.Forms.Label label2;
+		//private System.Windows.Forms.GroupBox groupBox1;
+		//private System.Windows.Forms.Label label1;
+		//private System.Windows.Forms.Button button_pickUp;
+		//private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+		//private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.GroupBox groupBoxGoToSky;
 		private System.Windows.Forms.Button buttonGoToSky;
 		private System.Windows.Forms.MaskedTextBox maskedTextBoxPlaceOnParking;
 		private System.Windows.Forms.Label labelPlace;
-	}
+        private System.Windows.Forms.MaskedTextBox textBoxNewLevelName;
+        private System.Windows.Forms.Button buttonAddParking;
+        private System.Windows.Forms.ListBox listBoxParkings;
+        private System.Windows.Forms.Button buttonDeleteParking;
+    }
 }

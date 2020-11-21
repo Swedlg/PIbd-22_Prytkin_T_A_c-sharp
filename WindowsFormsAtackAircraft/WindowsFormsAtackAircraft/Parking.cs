@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
 namespace WindowsFormsAtackAircraft
 {
@@ -11,7 +12,12 @@ namespace WindowsFormsAtackAircraft
         /// <summary>
         /// Массив объектов, которые храним
         /// </summary>
-        private readonly T[] _places;
+        private readonly List<T> _places;
+
+        /// <summary>
+        /// Максимальное количество мест на парковке
+        /// </summary>
+        private readonly int _maxCount;
 
         /// <summary>
         /// Ширина окна отрисовки
@@ -42,7 +48,8 @@ namespace WindowsFormsAtackAircraft
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _places = new T[width * height];
+            _maxCount = width * height;
+            _places = new List<T>();
             pictureWidth = picWidth;
             pictureHeight = picHeight;
         }
@@ -52,20 +59,19 @@ namespace WindowsFormsAtackAircraft
         /// Логика действия: на парковку добавляется самолет
         /// </summary>
         /// <param name="p">Парковка</param>
-        /// <param name="car">Добавляемый автомобиль</param>
+        /// <param name="plane">Добавляемый автомобиль</param>
         /// <returns></returns>
-        public static bool operator +(Parking<T> p, T car)
+        public static bool operator +(Parking<T> p, T plane)
         {
-            for (int i = 0; i < p._places.Length; i++)
+            if (p._places.Count < p._maxCount)
             {
-                if (p._places[i] == null)
-                {
-                    p._places[i] = car;
-                    p._places[i].SetPosition(10 + ((i / 2) * 250), 100 + ((i % 2) * 230), p.pictureWidth, p.pictureHeight);
-                    return true;
-                }
+                p._places.Add(plane);
+                return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -78,15 +84,16 @@ namespace WindowsFormsAtackAircraft
         public static T operator -(Parking<T> p, int index)
         {
 
-            if (p._places.Length > index && index > 0)
+            if (p._places.Count > index)
             {
                 T returnResult = p._places[index];
-                p._places[index] = null;
-
+                p._places.RemoveAt(index);
                 return returnResult;
             }
-
-            return null;
+            else
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -96,8 +103,9 @@ namespace WindowsFormsAtackAircraft
         public void Draw(Graphics g)
         {
             DrawMarking(g);
-            for (int i = 0; i < _places.Length; i++)
+            for (int i = 0; i < _places.Count; i++)
             {
+                _places[i]?.SetPosition(5 + i / 2 * _placeSizeWidth + 5, i % 2 * _placeSizeHeight + 105, pictureWidth, pictureHeight);
                 _places[i]?.DrawTransport(g);
             }
         }
@@ -113,11 +121,9 @@ namespace WindowsFormsAtackAircraft
             {
                 for (int j = 0; j < pictureHeight / _placeSizeHeight + 1; ++j)
                 {//линия рамзетки места
-                    g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight, i *
-                   _placeSizeWidth + _placeSizeWidth / 2, j * _placeSizeHeight);
+                    g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight, i * _placeSizeWidth + _placeSizeWidth / 2, j * _placeSizeHeight);
                 }
-                g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth,
-               (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
+                g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
         }
     }

@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAtackAircraft));
-            //this.btnCreate = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
             this.pictureBoxAtackAircraft = new System.Windows.Forms.PictureBox();
-            //this.btnCreateAtackAircraft = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtackAircraft)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,8 +106,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1090, 701);
-            //this.Controls.Add(this.btnCreateAtackAircraft);
-            //this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnLeft);
@@ -130,8 +126,6 @@
         private System.Windows.Forms.Button btnLeft;
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Button btnRight;
-        //private System.Windows.Forms.Button btnCreate;
-        //private System.Windows.Forms.Button btnCreateAtackAircraft;
     }
 }
 
