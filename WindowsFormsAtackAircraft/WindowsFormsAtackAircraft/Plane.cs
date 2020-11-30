@@ -7,14 +7,14 @@ namespace WindowsFormsAtackAircraft
     {
 
         /// <summary>
-        /// Ширина отрисовки автомобиля
+        /// Ширина отрисовки самолета
         /// </summary>
         protected readonly int planeWidth = 200;
 
         /// <summary>
-        /// Высота отрисовки автомобиля
+        /// Высота отрисовки самолета
         /// </summary>
-        protected readonly int planeHeight = 100;
+        protected readonly int planeHeight = 200;
 
         /// <summary>
         /// Признак пропеллера
@@ -42,14 +42,14 @@ namespace WindowsFormsAtackAircraft
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
-            DopColor = dopColor;
+            DopColorOfPropellerShassisAntenna = dopColor;
             Propeller = propeller;
             Сhassis = chassis;
             Antenna = antenna;
         }
 
         /// <summary>
-        /// Конструкторс изменением размеров машины
+        /// Конструктор с изменением размеров машины
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес автомобиля</param>
@@ -61,7 +61,7 @@ namespace WindowsFormsAtackAircraft
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
-            DopColor = dopColor;
+            DopColorOfPropellerShassisAntenna = dopColor;
             Propeller = propeller;
             Сhassis = chassis;
             Antenna = antenna;
@@ -77,8 +77,9 @@ namespace WindowsFormsAtackAircraft
         public override void MoveTransport(Direction direction)
         {
             int leftbody = 0;//выступ левой части
-            int topbudy = 100;//выступ основной части корабля
+            int topbody = 100;//выступ основной части корабля
             float step = MaxSpeed * 100 / Weight;
+
             switch (direction)
             {
                 // вправо
@@ -95,7 +96,7 @@ namespace WindowsFormsAtackAircraft
                     }
                     break;
                 case Direction.Up:
-                    if (_startPosY - step > topbudy)
+                    if (_startPosY - step > topbody)
                     {
                         _startPosY -= step;
                     }
@@ -109,7 +110,6 @@ namespace WindowsFormsAtackAircraft
             }
         }
 
-
         /// <summary>
         /// Отрисовка транспорта
         /// </summary>
@@ -117,7 +117,7 @@ namespace WindowsFormsAtackAircraft
         public override void DrawTransport(Graphics g)
         {
 
-            Pen pen = new Pen(DopColor);
+            Pen pen = new Pen(DopColorOfPropellerShassisAntenna);
             Brush brush = new SolidBrush(MainColor); ;
 
             //pen.Width = 16;
@@ -147,14 +147,14 @@ namespace WindowsFormsAtackAircraft
 
             if (Propeller)
             {
-                pen = new Pen(DopColor);
+                pen = new Pen(DopColorOfPropellerShassisAntenna);
                 pen.Width = 3;
                 g.DrawLine(pen, _startPosX + 85, _startPosY - 95, _startPosX + 115, _startPosY - 95);
 
             }
             if (Сhassis)
             {
-                pen = new Pen(DopColor);
+                pen = new Pen(DopColorOfPropellerShassisAntenna);
                 pen.Width = 3;
                 g.DrawLine(pen, _startPosX + 100, _startPosY - 75, _startPosX + 100, _startPosY - 50);
                 g.DrawEllipse(pen, _startPosX + 97, _startPosY - 65, 6, 6);
@@ -165,7 +165,7 @@ namespace WindowsFormsAtackAircraft
             }
             if (Antenna)
             {
-                pen = new Pen(DopColor);
+                pen = new Pen(DopColorOfPropellerShassisAntenna);
                 pen.Width = 3;
                 g.DrawLine(pen, _startPosX + 100, _startPosY + 95, _startPosX + 100, _startPosY + 120);
             }

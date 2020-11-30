@@ -49,6 +49,12 @@
     <Compile Include="AttackAircraft.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="FlyingTransport.cs" />
+    <Compile Include="FormAttackAircraftConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAttackAircraftConfig.Designer.cs">
+      <DependentUpon>FormAttackAircraftConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAtackAircraft.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAtackAircraft.resx">
       <DependentUpon>FormAtackAircraft.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAttackAircraftConfig.resx">
+      <DependentUpon>FormAttackAircraftConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormParking.resx">
       <DependentUpon>FormParking.cs</DependentUpon>

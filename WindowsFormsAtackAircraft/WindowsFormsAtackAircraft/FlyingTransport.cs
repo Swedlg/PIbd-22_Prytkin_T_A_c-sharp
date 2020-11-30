@@ -39,7 +39,7 @@ namespace WindowsFormsAtackAircraft
         /// Основной и дополнительный цвета
         /// </summary>
         public Color MainColor { protected set; get; }
-        public Color DopColor { protected set; get; }
+        public Color DopColorOfPropellerShassisAntenna { protected set; get; }
 
         /// <summary>
         /// Установить позицию для летающего транспорта
@@ -54,6 +54,14 @@ namespace WindowsFormsAtackAircraft
             _startPosY = y;
             _pictureWidth = width;
             _pictureHeight = height;
+        }
+
+        /// <summary>
+        /// Устанавливаем главный цвет
+        /// </summary>
+        public void SetMainColor(Color color)
+        {
+            MainColor = color;
         }
 
         public abstract void DrawTransport(Graphics g);

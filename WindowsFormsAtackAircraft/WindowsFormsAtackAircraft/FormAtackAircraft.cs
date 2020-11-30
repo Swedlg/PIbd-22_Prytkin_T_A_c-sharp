@@ -45,6 +45,7 @@ namespace WindowsFormsAtackAircraft
             try
             {
                 string name = (sender as Button).Name;
+
                 switch (name)
                 {
                     case "btnUp":

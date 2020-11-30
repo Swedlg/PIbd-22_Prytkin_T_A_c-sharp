@@ -28,12 +28,21 @@ namespace WindowsFormsAtackAircraft
         /// <param name="mainColor">Основной цвет кузова</param>
         /// <param name="dopColor">Дополнительный цвет</param>
         /// public SportCar(int maxSpeed, float weight, Color mainColor, Color dopColor, bool frontSpoiler, bool sideSpoiler, bool backSpoiler, bool sportLine) :
-        public AttackAircraft(int maxSpeed, float weight, Color mainColor, Color dopColor, bool rockets, bool bombs) :
-        base(maxSpeed, weight, mainColor, Color.Green, true, true, true, 100, 60)
+        public AttackAircraft(int maxSpeed, float weight, Color mainColor, Color dopColor, bool propeller, bool chassis, bool antenna, bool rockets, bool bombs) :
+        base(maxSpeed, weight, mainColor, Color.Green, propeller, chassis, antenna, 100, -100)//высота -100 т.к. отчет от его цетнра
         {
             DopColor = dopColor;
             Rockets = rockets;
             Bombs = bombs;
+        }
+
+        /// <summary>
+        /// Смена дополнительного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
         }
 
         /// <summary>

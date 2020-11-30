@@ -38,70 +38,17 @@ namespace WindowsFormsAtackAircraft
 			}
 		}
 
-		/// <summary>
-		/// Обработка нажатия кнопки "Припарковать самолет"
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void button_parkThePlane_Click(object sender, EventArgs e)
-		{
-            if (listBoxParkings.SelectedIndex > -1)
-			{
-			    ColorDialog dialog = new ColorDialog();
-			    if (dialog.ShowDialog() == DialogResult.OK)
-			    {
-				    var plane = new Plane(100, 1000, dialog.Color, Color.Green, true, true, true);
-		        if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane)
-				    {
-				    	Draw();
-				    }
-				    else
-				    {
-					    MessageBox.Show("Парковка переполнена");
-				    }
-			    }
-            }
-		}
-
-		/// <summary>
-		/// Обработка нажатия кнопки "Припарковать штурмовик"
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void button_parkAttackAircraft_Click(object sender, EventArgs e)
-		{
-            if (listBoxParkings.SelectedIndex > -1)
-			{
-			    ColorDialog dialog = new ColorDialog();
-			    if (dialog.ShowDialog() == DialogResult.OK)
-			    {
-				    ColorDialog dialogDop = new ColorDialog();
-				    if (dialogDop.ShowDialog() == DialogResult.OK)
-				    {
-					    var plane = new AttackAircraft(100, 1000, dialog.Color, dialogDop.Color, true, true);
-					    if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane)
-					    {
-						    Draw();
-					    }
-					    else
-					    {
-						    MessageBox.Show("Парковка переполнена");
-					    }
-				    }
-			    }
-            }
-		}
-
         /// <summary>
-		/// Обработка нажатия кнопки "Припарковать штурмовик"
+		/// Обработка нажатия кнопки "Отправить самолет в воздух"
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void buttonCreateAttackAirctaft_Click(object sender, EventArgs e)
+		private void buttonGoToSkyAttackAirctaft_Click(object sender, EventArgs e)
 		{
 			if (maskedTextBoxPlaceOnParking.Text != "")
 			{
 				var plane = parkingCollection[listBoxParkings.SelectedItem.ToString()] - (Convert.ToInt32(maskedTextBoxPlaceOnParking.Text) - 1);
+
 				if (plane != null)
 				{
 					FormAtackAircraft form = new FormAtackAircraft();
@@ -111,21 +58,6 @@ namespace WindowsFormsAtackAircraft
 				Draw();
 			}
 		}
-
-        private void buttonTake_Click(object sender, EventArgs e)
-        {
-            if (maskedTextBoxPlaceOnParking.Text != "")
-            {
-                var plane = parkingCollection[listBoxParkings.SelectedItem.ToString()] - (Convert.ToInt32(maskedTextBoxPlaceOnParking.Text) - 1);
-                if (plane != null)
-                {
-                    FormAtackAircraft form = new FormAtackAircraft();
-                    form.SetPlane(plane);
-                    form.ShowDialog();
-                }
-                Draw();
-            }
-        }
 
         /// <summary>
         /// Заполнение listBoxLevels
@@ -148,8 +80,11 @@ namespace WindowsFormsAtackAircraft
             }
         }
 
-
-
+        /// <summary>
+        /// Добавить парковку
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAddParking_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxNewLevelName.Text))
@@ -161,7 +96,11 @@ namespace WindowsFormsAtackAircraft
             ReloadLevels();
         }
 
-
+        /// <summary>
+        /// Удалить парковку
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonDeleteParking_Click(object sender, EventArgs e)
         {
             if (listBoxParkings.SelectedIndex > -1)
@@ -173,10 +112,57 @@ namespace WindowsFormsAtackAircraft
                 }
             }
         }
-
+      
+        /// <summary>
+        /// Выбрать парковку (вызовется ее отрисовка)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBoxParkings_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        /// <summary>
+		/// Обработчик кнопки припарковать самолет
+		/// </summary>
+		private void buttonParkPlane_Click(object sender, EventArgs e)
+        {
+            if (listBoxParkings.SelectedIndex > -1)
+            {
+                var formSAttackAircraftConfig = new FormAttackAircraftConfig();
+                formSAttackAircraftConfig.AddEvent(AddPlane);
+
+
+                //formSAttackAircraftConfig.AddEvent(printMassage);
+
+
+                formSAttackAircraftConfig.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Гараж не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        /// <summary>
+		/// Метод добавления самолета
+		/// </summary>
+		/// <param name="plane"></param>
+		private void AddPlane(FlyingTransport plane)
+        {
+            if (plane != null && listBoxParkings.SelectedIndex > -1)
+            {
+                if ((parkingCollection[listBoxParkings.SelectedItem.ToString()]) + plane)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Самолет не удалось поставить");
+                }
+            }
         }
     }
 }
