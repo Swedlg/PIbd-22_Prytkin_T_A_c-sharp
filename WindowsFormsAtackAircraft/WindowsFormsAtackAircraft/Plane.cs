@@ -17,19 +17,43 @@ namespace WindowsFormsAtackAircraft
         protected readonly int planeHeight = 200;
 
         /// <summary>
+        /// Разделитель для записи информации по объекту в файл
+        /// </summary>
+        protected readonly char separator = ';';
+
+        /// <summary>
         /// Признак пропеллера
         /// </summary>
-        public bool Propeller { private set; get; }
+        public bool Propeller { protected set; get; }
 
         /// <summary>
         /// Признак наличия шасси
         /// </summary>
-        public bool Сhassis { private set; get; }
+        public bool Сhassis { protected set; get; }
 
         /// <summary>
         /// Признак наличия антенна
         /// </summary>
-        public bool Antenna { private set; get; }
+        public bool Antenna { protected set; get; }
+
+        /// <summary>
+        /// Конструктор для загрузки с файла
+        /// </summary>
+        /// <param name="info">Информация по объекту</param>
+        public Plane(string info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 7)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromArgb(Convert.ToInt32(strs[2]));
+                DopColorOfPropellerShassisAntenna = Color.FromArgb(Convert.ToInt32(strs[3]));
+                Propeller = Convert.ToBoolean(strs[4]);
+                Сhassis = Convert.ToBoolean(strs[5]);
+                Antenna = Convert.ToBoolean(strs[6]);
+            }
+        }
 
         /// <summary>
         /// Конструктор
@@ -169,6 +193,14 @@ namespace WindowsFormsAtackAircraft
                 pen.Width = 3;
                 g.DrawLine(pen, _startPosX + 100, _startPosY + 95, _startPosX + 100, _startPosY + 120);
             }
+        }
+
+        /// <summary>
+        /// Вернуть как строку
+        /// </summary>
+        public override string ToString()
+        {
+            return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.ToArgb()}{separator}{DopColorOfPropellerShassisAntenna.ToArgb()}{separator}{Propeller}{separator}{Сhassis}{separator}{Antenna}";
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace WindowsFormsAtackAircraft
 {
@@ -19,6 +20,36 @@ namespace WindowsFormsAtackAircraft
         /// Признак наличия заднего бомб
         /// </summary>
         public bool Bombs { private set; get; }
+
+        /// <summary>
+        /// Конструктор для загрузки с файла
+        /// </summary>
+        /// <param name="info"></param>
+        public AttackAircraft(string info) : base(info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 9)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromArgb(Convert.ToInt32(strs[2]));
+                DopColorOfPropellerShassisAntenna = Color.Green;
+                DopColor = Color.FromArgb(Convert.ToInt32(strs[3]));
+                Propeller = Convert.ToBoolean(strs[4]);
+                Сhassis = Convert.ToBoolean(strs[5]);
+                Antenna = Convert.ToBoolean(strs[6]);
+                Rockets = Convert.ToBoolean(strs[7]);
+                Bombs = Convert.ToBoolean(strs[8]);
+            }
+        }
+
+        /// <summary>
+        /// Вернуть как строку
+        /// </summary>
+        public override string ToString()
+        {
+            return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.ToArgb()}{separator}{DopColor.ToArgb()}{separator}{Propeller}{separator}{Сhassis}{separator}{Antenna}{separator}{Rockets}{separator}{Bombs}";
+        }
 
         /// <summary>
         /// Конструктор
