@@ -35,7 +35,6 @@ namespace WindowsFormsAtackAircraft
             buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
         }
 
-
         /// <summary>
         /// Перенос цвета
         /// </summary>
@@ -69,7 +68,6 @@ namespace WindowsFormsAtackAircraft
         {
             labelPlane.DoDragDrop(labelPlane.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
-
 
         /// <summary>
         /// Проверка получаемой информации (ее типа на соответствие требуемому)
@@ -109,7 +107,7 @@ namespace WindowsFormsAtackAircraft
         }
 
         /// <summary>
-        /// 
+        /// Перетягивания цвета
         /// </summary>
         private void LabelMainColor_DragEnter(object sender, DragEventArgs e)
         {
@@ -124,7 +122,7 @@ namespace WindowsFormsAtackAircraft
         }
 
         /// <summary>
-        /// 
+        /// Перетягивания цвета
         /// </summary>
         private void LabelMainColor_DragDrop(object sender, DragEventArgs e)
         {
@@ -135,9 +133,8 @@ namespace WindowsFormsAtackAircraft
             }
         }
 
-
         /// <summary>
-        /// 
+        /// Перетягивания цвета
         /// </summary>
         private void LabelDopColor_DragDrop(object sender, DragEventArgs e)
         {
@@ -157,13 +154,6 @@ namespace WindowsFormsAtackAircraft
             eventAddPlane?.Invoke(plane);
             Close();
         }
-
-
-        public void PrintMessage(object sender, EventArgs e)
-        {
-            MessageBox.Show("Хотим припарковать самолет!");
-        }
-
 
         /// <summary>
         /// Добавление события

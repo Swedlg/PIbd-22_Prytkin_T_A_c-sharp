@@ -131,11 +131,10 @@ namespace WindowsFormsAtackAircraft
             if (listBoxParkings.SelectedIndex > -1)
             {
                 var formSAttackAircraftConfig = new FormAttackAircraftConfig();
+
                 formSAttackAircraftConfig.AddEvent(AddPlane);
 
-
-                //formSAttackAircraftConfig.AddEvent(printMassage);
-
+                formSAttackAircraftConfig.eventAddPlane += PrintMessage;
 
                 formSAttackAircraftConfig.ShowDialog();
             }
@@ -143,7 +142,14 @@ namespace WindowsFormsAtackAircraft
             {
                 MessageBox.Show("Гараж не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        /// <summary>
+		/// Выводит диалоговое окно с надписью
+		/// </summary>
+        public void PrintMessage(FlyingTransport f)
+        {
+            MessageBox.Show("Самолет припаркован");
         }
 
         /// <summary>
