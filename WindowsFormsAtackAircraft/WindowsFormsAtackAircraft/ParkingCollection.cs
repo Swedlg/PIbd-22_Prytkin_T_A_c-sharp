@@ -120,8 +120,7 @@ namespace WindowsFormsAtackAircraft
                 {
                     //Начинаем парковку
                     streamWriter.WriteLine($"Parking{separator}{level.Key}");
-                    ITransport plane = null;
-                    for (int i = 0; (plane = level.Value.GetNext(i)) != null; i++)
+                    foreach (ITransport plane in level.Value)
                     {
                         if (plane != null)
                         {

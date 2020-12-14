@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttackAircraft.cs" />
+    <Compile Include="ParkingAlreadyHaveException.cs" />
     <Compile Include="ParkingNotFoundException.cs" />
     <Compile Include="ParkingOverflowException.cs" />
     <Compile Include="Direction.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Parking.cs" />
     <Compile Include="ParkingCollection.cs" />
     <Compile Include="Plane.cs" />
+    <Compile Include="PlaneComparer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAtackAircraft.resx">

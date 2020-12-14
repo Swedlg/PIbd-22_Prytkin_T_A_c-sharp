@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace WindowsFormsAtackAircraft
 {
-    public class Plane : FlyingTransport
+    public class Plane : FlyingTransport, IEquatable<Plane>
     {
 
         /// <summary>
@@ -202,5 +202,89 @@ namespace WindowsFormsAtackAircraft
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.ToArgb()}{separator}{DopColorOfPropellerShassisAntenna.ToArgb()}{separator}{Propeller}{separator}{Сhassis}{separator}{Antenna}";
         }
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса Plane
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(Plane other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            if (Propeller != other.Propeller)
+            {
+                return false;
+            }
+            if (Сhassis != other.Сhassis)
+            {
+                return false;
+            }
+            if (Antenna != other.Antenna)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Plane planeObject))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(planeObject);
+            }
+        }
+
+
+
+
+
+
     }
 }

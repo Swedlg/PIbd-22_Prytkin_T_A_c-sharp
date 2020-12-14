@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace WindowsFormsAtackAircraft
 {
-    public class AttackAircraft : Plane
+    public class AttackAircraft : Plane, IEquatable<AttackAircraft>
     {
 
         /// <summary>
@@ -107,5 +107,94 @@ namespace WindowsFormsAtackAircraft
                 g.FillEllipse(brush, _startPosX + 93, _startPosY + 25, 14, 28);
             }
         }
+
+
+
+
+
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса AttackAircraft
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(AttackAircraft other)
+        {
+            // Реализовать метод сравнения для дочернего класса
+
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            if (Propeller != other.Propeller)
+            {
+                return false;
+            }
+            if (Сhassis != other.Сhassis)
+            {
+                return false;
+            }
+            if (Antenna != other.Antenna)
+            {
+                return false;
+            }
+            if (Rockets != other.Rockets)
+            {
+                return false;
+            }
+            if (Bombs != other.Bombs)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+
+
+
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is AttackAircraft attackAircraftObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(attackAircraftObj);
+            }
+        }
+
+
+
+
     }
 }
