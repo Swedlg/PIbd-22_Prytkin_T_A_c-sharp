@@ -108,10 +108,6 @@ namespace WindowsFormsAtackAircraft
             }
         }
 
-
-
-
-
         /// <summary>
         /// Метод интерфейса IEquatable для класса AttackAircraft
         /// </summary>
@@ -168,10 +164,6 @@ namespace WindowsFormsAtackAircraft
             return true;
         }
 
-
-
-
-
         /// <summary>
         /// Перегрузка метода от object
         /// </summary>
@@ -192,9 +184,5 @@ namespace WindowsFormsAtackAircraft
                 return Equals(attackAircraftObj);
             }
         }
-
-
-
-
     }
 }

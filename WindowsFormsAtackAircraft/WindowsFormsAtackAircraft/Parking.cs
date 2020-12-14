@@ -152,15 +152,10 @@ namespace WindowsFormsAtackAircraft
             return _places[index];
         }
 
-
-
-
-
         /// <summary>
         /// Сортировка самолетов на парковке
         /// </summary>
         public void Sort() => _places.Sort((IComparer<T>)new PlaneComparer());
-
 
         /// <summary>
         /// Метод интерфейса IEnumerator, вызываемый при удалении объекта
@@ -168,8 +163,6 @@ namespace WindowsFormsAtackAircraft
         public void Dispose()
         {
         }
-
-
 
         /// <summary>
         /// Метод интерфейса IEnumerator для перехода к следующему элементу или началу коллекции
@@ -183,8 +176,6 @@ namespace WindowsFormsAtackAircraft
             //return true;
         }
 
-
-
         /// <summary>
         /// Метод интерфейса IEnumerator для сброса и возврата к началу коллекции
         /// </summary>
@@ -192,9 +183,6 @@ namespace WindowsFormsAtackAircraft
         {
             _currentIndex = -1;
         }
-
-
-
 
         /// <summary>
         /// Метод интерфейса IEnumerable
@@ -204,9 +192,6 @@ namespace WindowsFormsAtackAircraft
             return this;
         }
 
-
-
-
         /// <summary>
         /// Метод интерфейса IEnumerable
         /// </summary>
@@ -214,9 +199,5 @@ namespace WindowsFormsAtackAircraft
         {
             return this;
         }
-
-
-
-
     }
 }

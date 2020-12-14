@@ -203,13 +203,6 @@ namespace WindowsFormsAtackAircraft
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.ToArgb()}{separator}{DopColorOfPropellerShassisAntenna.ToArgb()}{separator}{Propeller}{separator}{Сhassis}{separator}{Antenna}";
         }
 
-
-
-
-
-
-
-
         /// <summary>
         /// Метод интерфейса IEquatable для класса Plane
         /// </summary>
@@ -252,14 +245,6 @@ namespace WindowsFormsAtackAircraft
             return true;
         }
 
-
-
-
-
-
-
-
-
         /// <summary>
         /// Перегрузка метода от object
         /// </summary>
@@ -280,11 +265,5 @@ namespace WindowsFormsAtackAircraft
                 return Equals(planeObject);
             }
         }
-
-
-
-
-
-
     }
 }
