@@ -63,15 +63,14 @@ namespace WindowsFormsAtackAircraft
         /// <returns></returns>
         public static bool operator +(Parking<T> p, T plane)
         {
-            if (p._places.Count < p._maxCount)
+
+            if (p._places.Count >= p._maxCount)
             {
-                p._places.Add(plane);
-                return true;
+                throw new ParkingOverflowException();
             }
-            else
-            {
-                return false;
-            }
+
+            p._places.Add(plane);
+            return true;
         }
 
         /// <summary>
@@ -84,16 +83,14 @@ namespace WindowsFormsAtackAircraft
         public static T operator -(Parking<T> p, int index)
         {
 
-            if (p._places.Count > index)
+            if (index < -1 || index > p._places.Count)
             {
-                T returnResult = p._places[index];
-                p._places.RemoveAt(index);
-                return returnResult;
+                throw new ParkingNotFoundException(index);
             }
-            else
-            {
-                return null;
-            }
+
+            T plane = p._places[index];
+            p._places.RemoveAt(index);
+            return plane;
         }
 
         /// <summary>

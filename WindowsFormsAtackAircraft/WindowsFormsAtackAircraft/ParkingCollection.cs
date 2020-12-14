@@ -100,34 +100,17 @@ namespace WindowsFormsAtackAircraft
             }
         }
 
-
-
-
-        /// <summary>
-        /// Метод записи информации в файл
-        /// </summary>
-        /// <param name="text">Строка, которую следует записать</param>
-        /// <param name="stream">Поток для записи</param>
-        private void WriteToFile(string text, FileStream stream)
-        {
-            byte[] info = new UTF8Encoding(true).GetBytes(text);
-            stream.Write(info, 0, info.Length);
-        }
-
-
-
         /// <summary>
         /// Сохранение информации по автомобилям на парковках в файл
         /// </summary>
         /// <param name="filename">Путь и имя файла</param>
         /// <returns></returns>
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
                 File.Delete(filename);
             }
-
 
             using (StreamWriter streamWriter = new StreamWriter(filename, true, Encoding.UTF8))
             {
@@ -159,35 +142,19 @@ namespace WindowsFormsAtackAircraft
                     }
                 }
             }
-
-
-
-
-
-            return true;
         }
-
-
-
-
-
-
-
 
         /// <summary>
         /// Загрузка нформации по автомобилям на парковках из файла
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
-
-
-
 
             using (StreamReader streamReader = new StreamReader(filename, Encoding.UTF8))
             {
@@ -200,15 +167,13 @@ namespace WindowsFormsAtackAircraft
                     parkingStages.Clear();
                 }
 
-
                 else
                 {
                     //если нет такой записи, то это не те данные
-                    return false;
+                    throw new Exception("Неверный формат файла");
                 }
                 FlyingTransport plane = null;
                 string key = string.Empty;
-
 
                 while ((strs = streamReader.ReadLine()) != null)
                 {
@@ -236,77 +201,7 @@ namespace WindowsFormsAtackAircraft
 
                     if (!(parkingStages[key] + plane))
                     {
-                        return false;
-                    }
-                }
-
-                return true;
-            }
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /// <summary>
-        /// Сохранение информации по автомобилям на парковках в файл
-        /// </summary>
-        /// <param name="filename">Путь и имя файла</param>
-        /// <returns></returns>
-        public void SaveData(string filename, string index)
-        {
-            if (File.Exists(filename))
-            {
-                File.Delete(filename);
-            }
-
-
-            using (StreamWriter streamWriter = new StreamWriter(filename, true, Encoding.UTF8))
-            {
-                streamWriter.WriteLine("ParkingCollection");
-
-
-                Parking<FlyingTransport> level;
-
-                if (parkingStages.ContainsKey(index))
-                {
-                    level = parkingStages[index];
-
-                    //Начинаем парковку
-                    streamWriter.WriteLine($"Parking{separator}{index}");
-                    ITransport plane = null;
-                    for (int i = 0; (plane = level.GetNext(i)) != null; i++)
-                    {
-
-                        if (plane != null)
-                        {
-                            //если место не пустое
-                            //Записываем тип самолета
-                            if (plane.GetType().Name == "Plane")
-                            {
-                                streamWriter.Write($"Plane{separator}");
-                            }
-                            if (plane.GetType().Name == "AttackAircraft")
-                            {
-                                streamWriter.Write($"AttackAircraft{separator}");
-                            }
-
-                            //Записываемые параметры
-                            streamWriter.WriteLine(plane);
-                        }
-
+                        throw new Exception("Не удалось загрузить cамолет на парковку");
                     }
                 }
             }
