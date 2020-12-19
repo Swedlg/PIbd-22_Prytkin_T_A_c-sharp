@@ -198,7 +198,6 @@ namespace WindowsFormsAtackAircraft
                         plane = new AttackAircraft(strs.Split(separator)[1]);
                     }
 
-
                     if (!(parkingStages[key] + plane))
                     {
                         throw new Exception("Не удалось загрузить cамолет на парковку");

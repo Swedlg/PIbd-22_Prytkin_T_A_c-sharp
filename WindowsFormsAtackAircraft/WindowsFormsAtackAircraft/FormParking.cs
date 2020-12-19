@@ -158,22 +158,12 @@ namespace WindowsFormsAtackAircraft
 
                 formSAttackAircraftConfig.AddEvent(AddPlane);
 
-                formSAttackAircraftConfig.eventAddPlane += PrintMessage;
-
                 formSAttackAircraftConfig.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Гараж не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        /// <summary>
-		/// Выводит диалоговое окно с надписью
-		/// </summary>
-        public void PrintMessage(FlyingTransport f)
-        {
-            MessageBox.Show("Самолет припаркован");
         }
 
         /// <summary>
@@ -250,12 +240,6 @@ namespace WindowsFormsAtackAircraft
                     ReloadLevels();
                     Draw();
                 }
-                /*
-                catch (ParkingOccupiedPlaceException ex)
-                {
-                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                */
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при загрузку", MessageBoxButtons.OK, MessageBoxIcon.Error);

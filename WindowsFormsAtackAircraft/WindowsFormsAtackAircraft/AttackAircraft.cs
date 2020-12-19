@@ -82,7 +82,6 @@ namespace WindowsFormsAtackAircraft
         /// <param name="g"></param>
         public override void DrawTransport(Graphics g)
         {
-
             base.DrawTransport(g);
 
             Pen pen = new Pen(DopColor);

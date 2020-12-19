@@ -63,7 +63,6 @@ namespace WindowsFormsAtackAircraft
         /// <returns></returns>
         public static bool operator +(Parking<T> p, T plane)
         {
-
             if (p._places.Count >= p._maxCount)
             {
                 throw new ParkingOverflowException();
@@ -82,8 +81,7 @@ namespace WindowsFormsAtackAircraft
         /// <returns></returns>
         public static T operator -(Parking<T> p, int index)
         {
-
-            if (index < -1 || index > p._places.Count)
+            if (index < -1 || index >= p._places.Count)
             {
                 throw new ParkingNotFoundException(index);
             }
