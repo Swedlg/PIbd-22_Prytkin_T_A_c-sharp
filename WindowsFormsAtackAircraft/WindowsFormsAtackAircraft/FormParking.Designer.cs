@@ -46,6 +46,7 @@ namespace WindowsFormsAtackAircraft
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.buttonSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBoxGoToSky.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -55,14 +56,14 @@ namespace WindowsFormsAtackAircraft
             // 
             this.pictureBoxParking.Location = new System.Drawing.Point(12, 57);
             this.pictureBoxParking.Name = "pictureBoxParking";
-            this.pictureBoxParking.Size = new System.Drawing.Size(649, 531);
+            this.pictureBoxParking.Size = new System.Drawing.Size(649, 557);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
             // 
             // button_ParkThePlane
             // 
-            this.button_ParkThePlane.Location = new System.Drawing.Point(675, 91);
-            this.button_ParkThePlane.Name = "buttonParkPlane";
+            this.button_ParkThePlane.Location = new System.Drawing.Point(672, 57);
+            this.button_ParkThePlane.Name = "button_ParkThePlane";
             this.button_ParkThePlane.Size = new System.Drawing.Size(268, 120);
             this.button_ParkThePlane.TabIndex = 3;
             this.button_ParkThePlane.Text = "Припарковать самолет";
@@ -74,7 +75,7 @@ namespace WindowsFormsAtackAircraft
             this.groupBoxGoToSky.Controls.Add(this.buttonGoToSky);
             this.groupBoxGoToSky.Controls.Add(this.maskedTextBoxPlaceOnParking);
             this.groupBoxGoToSky.Controls.Add(this.labelPlace);
-            this.groupBoxGoToSky.Location = new System.Drawing.Point(672, 217);
+            this.groupBoxGoToSky.Location = new System.Drawing.Point(672, 183);
             this.groupBoxGoToSky.Name = "groupBoxGoToSky";
             this.groupBoxGoToSky.Size = new System.Drawing.Size(275, 122);
             this.groupBoxGoToSky.TabIndex = 3;
@@ -109,14 +110,14 @@ namespace WindowsFormsAtackAircraft
             // 
             // textBoxNewLevelName
             // 
-            this.textBoxNewLevelName.Location = new System.Drawing.Point(673, 345);
+            this.textBoxNewLevelName.Location = new System.Drawing.Point(675, 311);
             this.textBoxNewLevelName.Name = "textBoxNewLevelName";
             this.textBoxNewLevelName.Size = new System.Drawing.Size(268, 20);
             this.textBoxNewLevelName.TabIndex = 4;
             // 
             // buttonAddParking
             // 
-            this.buttonAddParking.Location = new System.Drawing.Point(672, 371);
+            this.buttonAddParking.Location = new System.Drawing.Point(674, 337);
             this.buttonAddParking.Name = "buttonAddParking";
             this.buttonAddParking.Size = new System.Drawing.Size(269, 55);
             this.buttonAddParking.TabIndex = 5;
@@ -127,7 +128,7 @@ namespace WindowsFormsAtackAircraft
             // listBoxParkings
             // 
             this.listBoxParkings.FormattingEnabled = true;
-            this.listBoxParkings.Location = new System.Drawing.Point(675, 432);
+            this.listBoxParkings.Location = new System.Drawing.Point(677, 398);
             this.listBoxParkings.Name = "listBoxParkings";
             this.listBoxParkings.Size = new System.Drawing.Size(266, 95);
             this.listBoxParkings.TabIndex = 6;
@@ -135,7 +136,7 @@ namespace WindowsFormsAtackAircraft
             // 
             // buttonDeleteParking
             // 
-            this.buttonDeleteParking.Location = new System.Drawing.Point(675, 533);
+            this.buttonDeleteParking.Location = new System.Drawing.Point(675, 499);
             this.buttonDeleteParking.Name = "buttonDeleteParking";
             this.buttonDeleteParking.Size = new System.Drawing.Size(269, 55);
             this.buttonDeleteParking.TabIndex = 7;
@@ -165,14 +166,14 @@ namespace WindowsFormsAtackAircraft
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.LoadToolStripMenuItem_Click);
             // 
@@ -185,11 +186,22 @@ namespace WindowsFormsAtackAircraft
             this.openFileDialog.FileName = "openFileDialog1";
             this.openFileDialog.Filter = "txt file | *.txt";
             // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(674, 559);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(269, 55);
+            this.buttonSort.TabIndex = 9;
+            this.buttonSort.Text = "Сортировать";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.ButtonSort_Click);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 600);
+            this.ClientSize = new System.Drawing.Size(964, 626);
+            this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.buttonDeleteParking);
             this.Controls.Add(this.listBoxParkings);
             this.Controls.Add(this.buttonAddParking);
@@ -234,5 +246,6 @@ namespace WindowsFormsAtackAircraft
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button buttonSort;
     }
 }
